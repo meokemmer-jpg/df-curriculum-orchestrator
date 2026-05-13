@@ -240,3 +240,27 @@ def test_run_curriculum_audit_stop_flag(tmp_path: Path) -> None:
     stop.write_text("stop")
     result = run_curriculum_audit(tmp_path, config, stop_flag=stop)
     assert result.skipped_due_to_stop_flag is True
+
+
+# ============================================================
+# W49-D K12+K13 Migration Tests
+# ============================================================
+
+def test_w49d_k12_envelope_and_k13_anchor(tmp_path: Path) -> None:
+    """K12 envelope + K13 RFC3161-anchor are produced by run_curriculum_audit."""
+    config = {
+        "paths": {"audit_log": "audit.jsonl"},
+        "k16_concurrent_spawn_mutex": {"lock_dir": str(tmp_path / ".lock-w49d")},
+    }
+    learners = [Learner("L1", CurriculumLevel.L1_INDUCTION)]
+    result = run_curriculum_audit(tmp_path, config, learners=learners)
+    assert not result.skipped_due_to_stop_flag
+    from engine import W49D_FOUNDATION
+    if W49D_FOUNDATION:
+        prov_dir = tmp_path / "provenance-full"
+        assert prov_dir.exists()
+        envs = list(prov_dir.glob("*.envelope.json"))
+        assert len(envs) >= 1
+        anchors = tmp_path / "anchors" / "rfc3161-anchors.jsonl"
+        assert anchors.exists()
+        assert anchors.read_text().strip()
