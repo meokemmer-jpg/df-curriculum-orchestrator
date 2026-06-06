@@ -1,0 +1,8 @@
+{
+  "df": "df-curriculum-orchestrator",
+  "ts": "2026-06-05T13:05:41.792785+00:00",
+  "ok": true,
+  "bytes": 2052,
+  "model": "qwen2.5:14b-instruct",
+  "duration_s": 48.0
+}
