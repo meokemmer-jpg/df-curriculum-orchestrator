@@ -1,0 +1,12 @@
+{
+  "df": "df-curriculum-orchestrator",
+  "ts": "2026-06-08T19:55:00.415347+00:00",
+  "has_src": true,
+  "parse_ok": true,
+  "has_tests": true,
+  "test_ran": true,
+  "tests_passed": true,
+  "code_hash": "c211d0eebe0661cc",
+  "python": "3.14.4",
+  "crux": "[CRUX-MK]"
+}
