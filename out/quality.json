@@ -1,9 +1,9 @@
 {
   "df": "df-curriculum-orchestrator",
-  "ts": "2026-07-14T03:00:34.895157+00:00",
+  "ts": "2026-07-15T03:00:58.913381+00:00",
   "maturity": "TESTED",
   "maturity_level": 4,
   "evidence_grade": 4,
-  "wargame_verdict": "CONDITIONAL",
+  "wargame_verdict": null,
   "crux": "[CRUX-MK]"
 }
